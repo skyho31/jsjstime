@@ -5,8 +5,7 @@
 
 JS JS TIME
 ===
-##### Week 1. Callback 
-###### Created by Seon-ho Kim [(Github)](https://github.com/skyho31/jsjstime)
+#####  Chapter 1. Callback 
 ###### 2019.01.02
 
 ---
