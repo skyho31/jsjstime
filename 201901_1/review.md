@@ -22,8 +22,7 @@ var sample = function sample() {
   //code
 }
 ```
-컴파일러에서 해석하는 함수는 내부적으로 함수표현식으로 실행된다.
-함수표현식은 호이스팅이 방지된다.
+함수선언식은 컴파일러에서 해석하는 함수는 내부적으로 함수표현식처럼 실행된다.
 
 **3. Vuex에서 사용되는 mapGetter**
 
@@ -31,7 +30,7 @@ var sample = function sample() {
 const dummy = {a:1, b:2, c:3}
 
 const getter2 = keyArr => keyArr.filter(key => dummy.hasOwnProperty(key))
-getter2(['a', 'b']) // {0:a, 1:b}
+getter2(['a', 'b']) // [a, b]
 ```
 Array.prototype.map: 기본 배열에 결과값을 리턴
 Array.prototype.filter: true 경우에 새로 만든 결과값을 리턴
