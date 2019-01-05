@@ -83,12 +83,12 @@ function func(){
 ](https://poiemaweb.com/js-execution-context)
 
 ---
-표현 > 선언  >>>>> 할당 == 실행
+함수선언 > 변수선언 >>>>> 할당 == 실행
 ```js
 function func(){}
 ```
 
-code no.|표현 |선언|할당 | 실행 | 결과
+code no.|함수선언 |변수선언 |할당 | 실행 | 결과
 -|-|- | - |- | -
 1|-|-|-|a()| ok
 2|-|-|-|console.log(b) | undefined
