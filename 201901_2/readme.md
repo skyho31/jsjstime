@@ -12,7 +12,7 @@ JS JS TIME
 ---
 # What's the es6
 
-`javascirpt`의 판을 다루는데 있어서, 사람들은 `es`라는 스펠에 숫자를 써서 표현하곤 합니다. 과연 `es` 즉 `ECMAScript`는 어디서 시작된 말일까요?
+`javascript`의 판을 다루는데 있어서, 사람들은 `es`라는 스펠에 숫자를 써서 표현하곤 합니다. 과연 `es` 즉 `ECMAScript`는 어디서 시작된 말일까요?
 
 <b> 이를 알기위해선 먼저 `ECMA`라는 단체의 정체를 알아야합니다.  </b>
 
