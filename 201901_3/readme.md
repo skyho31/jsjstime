@@ -125,6 +125,21 @@ tagFunction `Hello ${firstName} ${lastName}!`
 // tagFuntion([“Hello “, “ “, “!”], firstName, lastName)
 ```
 ---
+```js
+`Hello ${firstName} ${lastName}!`
+// Hello Jieun Lee!
+
+rawString = ["hello ", " ", "!"]
+args = ["Jieun", "Lee"]
+
+var msg = rawString[0] + args[0] + rawString[1] 
++ args[1] + rawString[2]
+// Hello Jieun Lee!
+
+String.raw({raw: ["Hello ", " ", "!"]}, firstName, lastName);
+```
+
+---
 ![bg](../asset/bmo.png)
 # THX :D
 
