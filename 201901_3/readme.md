@@ -77,10 +77,10 @@ console.log(str); // hello world
 ```js
 //es5
 var msg = 'hello world';
-var html = '<html>' +
-            '<body>' +
-           	'<div>' + msg + '</div>'+
-            '</body>'+
+var html = '<html>\n' +
+            '<body>\n' +
+           	'<div>' + msg + '</div>\n'+
+            '</body>\n'+
            '</html>';
 ```
 
