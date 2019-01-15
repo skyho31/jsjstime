@@ -12,7 +12,6 @@
 - var 변수가 코드 상엔 선언은 되있지만 실행 순서를 볼 때 선언이 되있지 않은 데도 실행했을 때, 발생하는 오류는 `ReferenceError`이어야합니다. 그런데 자바스크립트는 `undefined` 가 발생합니다. 
 - function 이 코드 상엔 선언은 되있지만 실행 순서를 볼 때 선언이 되있지 않은 데도 실행하면 마치 함수가 먼저 선언된 것 마냥 정상동작을 합니다.
 
----
 
 ## Execution Context 
 함수선언 > 변수선언 >>>>> 할당 == 실행 (줄여서 `ec`)
@@ -45,13 +44,11 @@ console.log(b); // 10
 c = 20;
 console.log(c); // 20
 ```
----
 
 ## let, const
 let(변수), const(상수)는 `es6` 부터 생긴 새로운 선언식입니다.
 `TDZ`란, temporary dead zone 으로서 기존의 호이스팅이 일어나지 않게 되었기에 발생합니다. 이제부터는 선언 전에 호출하면 `ReferenceError`가 발생합니다. 
 
----
 ## TDZ와 typeof
 `es5`까지의 문법에서`typeof()`는 safe zone이라 합니다. 어떠한 값이 들어오더라도 에러를 띄우지를 않게 됩니다. 
 ```js
@@ -62,7 +59,7 @@ typeof(k1) // undefined
 typeof(sample) 
 let sample = 10 // ReferenceError
 ```
----
+
 ## 중복선언금지
 var선언은 중복선언이 가능했습니다. `es6` 이후 `let, const`는 오직 하나의 변수만 할당가능합니다.
 ```js
@@ -70,7 +67,6 @@ let a = 10;
 let a = 20; // SyntaxError  
 ```
 
----
 ## block-level-scope
 `es5` 이전까지의 문법에서는 `function level scope` 이외에 다른 `scope` 가 존재하지 않았습니다. 
 ```js
@@ -88,7 +84,6 @@ console.log(d); // ReferenceError
 ```
 > let, const 와 var는 혼용해서 쓰면 호이스팅과 function level scope 로 인해 오류를 만나지 않게되거나, undefined 만나게 됩니다. 중복선언되거나 하면 원하는 결과를 얻지 못하게 되는 경우도 있습니다. 이렇게 값이 훼손된 경우에는 발생원인을 찾기가 어려울 수 있습니다. 오류가 발생하지 않는다고 손놓고만 있으면 나중에 큰 문제와 겹쳤을땐 해결할 수 없게 됩니다. 단순히 자바스크립트의 유연성을 너무 믿고 있다간 더 큰 문제를 발생시킬 수 있습니다. 이에 대비해서 `es6` 문법을 익히도록 노력해야해요.
 
----
 ## let, const 사용법
 `let` 변수는 재할당이 가능
 `const` 상수는 재할당이 불가능 (프로퍼티는 재할당이 가능)
