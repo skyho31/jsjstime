@@ -11,7 +11,7 @@ JS JS TIME
 
 # 1.Arrow Function.
 
-Arrow Function이란, Arrow 즉 화살표 (=>)를 활용하여 표기한 함수입니다. 
+`Arrow Function`이란, Arrow 즉 화살표 (=>)를 활용하여 표기한 함수입니다. 
 
 ```js
 var es5Function = function () {
@@ -39,7 +39,8 @@ Arrow function은 왜 갑자기 es6에서 생겨나게 된걸까요?
 단순한 sugar expression 일까요? 
 
 분명 일반 함수 선언보다 적은 텍스트를 사용하기는 합니다.
-하지만 그런 단순한 이유로 언어 스펙이 추가되고 하진 않죠. 그렇다면 Arrow function은 어떤 필요에 의해 생겨났을까요? 
+하지만 그런 단순한 이유로 언어 스펙이 추가되고 하진 않죠. 
+그렇다면 Arrow function은 어떤 필요에 의해 생겨났을까요? 
 
 ---
 
@@ -112,7 +113,7 @@ function의 문제점에 대해 다시 살펴봅시다.
 ```js
 //es5 class
 function Person(name){
-  return this.name;
+  this.name = name;
 }
 
 var person = new Person('jieun');
@@ -123,7 +124,7 @@ function sayHello() {
 
 sayHello();
 ```
-바로 class 선언과 function 선언이죠.
+바로 `class` 선언과 `function` 선언이죠.
 js를 오래 봐온 사람들이라면, 어렵지 않게 읽을 수 있지만, 그렇지 않은 사람들에게는 여전히 혼란스러운 문법입니다.
 
 ---
@@ -142,6 +143,8 @@ const name = (fi) => {code}
 ```js
 const hello = () => 'hello';
 hello(); // hello
+
+const getName = name => name;
 ```
 위와 같이 하나의 수식으로 표현이 가능할 경우 `return`을 생략할 수 있습니다.
 
@@ -155,6 +158,8 @@ func1(); // undefined
 //es6
 const func2 = () => {};
 func2(); // undefined
+
+(() => '')(); // ''
 ```
 위의 식은 `{}` 빈 객체를 반환하는걸까요?  
 `arrow function`에서 `{}`는 내부 코드식을 해석합니다. 위와 같은 경우는 `return`을 명시하지 않은 `function`이 되겠네요.
@@ -191,6 +196,23 @@ const instance = new Cls();
 > ###### 출처 - [Doren Front-end Developer](https://imcts.github.io/ES6-ARROW_FUNCTION)
 
 ---
+# etc
+```js
+var a = 10;
+console.log(window.a) // 10
+
+let b = 20;
+const c = 30;
+console.log(window.b); // undefined
+console.log(window.c); // undefined
+
+console.log(b); // 20
+console.log(c); // 30
+```
+
+
+---
+
 객체의 메서드로 예를 들어봅시다
 
 ```js
@@ -211,6 +233,32 @@ obj.counter2(); // 10
 ```
 
 `arrow function`으로 실행한 counter2의 경우 외부에 있는 10을 가져옵니다. 원래대로라면 객체의 메서드니 객체의 context를 가져와야겠죠. 
+
+---
+
+```js
+class Model {
+  constructor(){
+    this.name = 'model';
+    this.modelMethod = this.modelMethod.bind(this);
+  }
+  
+  modelMethod () {
+    return this.name;
+  }
+}
+
+class View {
+  constructor(model){
+    this.model = model;
+    this.name = 'view';
+    this.viewMethod = this.model.modelMethod;
+  }
+}
+
+const view = new View(new Model());
+view.viewMethod(); 
+```
 
 ---
 
@@ -252,7 +300,7 @@ func(1,2,3,4);
 ---
 
 대신 추후에 보게 될 `Rest Operator`를 통해 사용할 수 있습니다.
-`Rest`는 `arguments` 객체를 추가 생성하지 않아 성능상의 이점이 있습니다.
+`Rest Operator`는 `arguments` 객체를 추가 생성하지 않아 성능상의 이점이 있습니다.
 ```js
 function func(a,b,c,d){
   console.log(arguments);
