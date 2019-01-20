@@ -15,7 +15,7 @@ console.log(parse.name); // template litreal
 
 ### 1.Expression in template literal
 #### 1-1) Variable in Template literal
-```
+```js
 //es5
 var a = 'hi'
 var b = 'seonho'
@@ -30,14 +30,14 @@ console.log(str); // hi seonho
 ```
 위에 코드처럼 `variable` 과 `stirng`의 결합으로 사용할 수 있습니다.
 #### 1-2) Array Function + Template Literal
-```
+```js
 `${[1,4,9,16].map((x) => (x*2))}`// 2,8,18,32
 `${[1,2,3,4].reduce((a,c) => a + `${c}`, '')}` // 1234
 `${['spray', 'limit', 'elite', 'destruction'].filter((word) => word.length === 5)}` // spray,limit,elite
 ```
 Array 함수(map, reduce, filter 등)을 사용하는데, 의미에 맞게 사용해서 코드 가독성을 높여줍니다.
 ### 2. Multiline Template
-```
+```js
 //es5
 const json = '{'
      +'\"test\":{\n'
@@ -46,7 +46,7 @@ const json = '{'
     + '}\n'
 +'}'
 ```
-```
+```js
 //es6
 const json = `{
      "test":{
@@ -66,8 +66,8 @@ const result = `${
 console.log(result); // true 는 참입니다.
 ```
 ### 4. Tagged template
-`String.rwa()` 함수로 태그 문자열을 얻는데도 사용이 가능합니다.
-```
+`String.raw()` 함수로 태그 문자열을 얻는데도 사용이 가능합니다.
+```js
 const filePath = String.raw`C:\Development\profile\aboutme.html`; 
 console.log(filePath); // C:\Development\profile\aboutme.html
 
