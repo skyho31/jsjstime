@@ -3,13 +3,13 @@
 
 ## Template Literal
 `es6` 에서 추가된 보간 리터럴입니다. 즉, 최소 단위가 템플릿인 값입니다. 
-`(backtic) 을 이용해서 각종 표현식을 감쌀 수 있습니다.
+`(backtick) 을 이용해서 각종 표현식을 감쌀 수 있습니다.
 여러모로 굉장히 편하게 쓸 수 있는 기능이에요.
 
 ```js
-var name = 'template litreal'
-var json = `{"name": "${name}", "value": [1,2,3]}`;
-var parse = JSON.parse(json);
+const name = 'template litreal'
+const json = `{"name": "${name}", "value": [1,2,3]}`;
+const parse = JSON.parse(json);
 console.log(parse.name); // template litreal
 ```
 
