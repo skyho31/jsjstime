@@ -47,7 +47,7 @@ func2(); // undefined
 ```
 
 # 4. no new operator
-`arrow function`는 `new`연산자로 인슨턴스를 생성할 수 없습니다. 이 함수에는 `prototype`이 없기 때문입니다. `constructor`란 생성자 함수의 `prototype`을 의미하는데 `prototype`이 없으니 생성할 수 없다는 의미가 됩니다.
+`arrow function`는 `new`연산자로 인스턴스를 생성할 수 없습니다. 이 함수에는 `prototype`이 없기 때문입니다. `constructor`란 생성자 함수의 `prototype`을 의미하는데 `prototype`이 없으니 생성할 수 없다는 의미가 됩니다.
 ```js
 const Cls = () => {};
 const instance = new Cls();
@@ -61,26 +61,17 @@ const instance = new Cls();
 
 ## 5-1. this
 함수의 scope 는 그 함수를 호출할 때 결정됩니다. 
-```js
-var a = 10;
-console.log(window.a); // 10
-
-let b = 20;
-const c = 30;
-console.log(window.b); // undefined
-console.log(window.c); // undefined
-```
 counter2()는 외부에 있는 20을 가져옵니다. 원래대로라면 객체의 메서드니깐 객체의 context를 가져와야합니다.
 ```js
 window.count = 20;
 const obj = {
-    conut: 0,
+    count: 0,
     counter: function () {
       console.log(this.count);
     },
     counter2: () => console.log(this.count)
 }
-obj.counter(); // undefined
+obj.counter(); // 0
 obj.counter.call(this); // 20
 obj.counter.apply(this); // 20
 obj.counter.bind(this)(); // 20
