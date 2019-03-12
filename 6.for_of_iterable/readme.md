@@ -147,7 +147,99 @@ iteratorObj.next()
 
 ---
 
+### Array
+```js
+const iterable = [10, 20, 30];
 
+for (let value of iterable) {
+  console.log(value) // 10, 20, 30
+}
+```
+### String
+```js
+const iterable = '12345'
+
+for (let value of iterable) {
+  console.log(value) // 1, 2, 3, 4, 5
+}
+```
+---
+### Map
+```js
+const iterable = new Map([
+  ['a', 1], 
+  ['b', 2], 
+  ['c', 3]
+])
+
+for (let [key, value] of iterable) {
+  console.log(key, value)
+  // a, 1
+  // b, 2
+  // c, 3
+}
+```
+### Set
+```js
+const iterable = new Set([1, 1, 2, 2, 3, 3]);
+
+for (let value of iterable) {
+  console.log(value) // 1, 2, 3
+}
+```
+---
+### Generator
+```js
+function * generator () {
+  yield 1
+  yield 2
+  yield 3
+}
+
+for (let value of generator()) {
+  console.log(value) // 1, 2, 3
+}
+```
+---
+### Object
+```js
+let obj = {
+  [Symbol.iterator]() {
+    return {
+      maxCount: 2,
+      count: 0,
+      next() {
+        if (this.count < this.maxCount) {
+          return { value: this.count++, done: false }
+        }
+        return { value: undefined, done: true }
+      }
+    }
+  }
+}
+let iteratorObj = obj[Symbol.iterator]();
+
+console.log(iteratorObj.next());
+console.log(iteratorObj.next());
+console.log(iteratorObj.next());
+```
+
+---
+### Generator
+```js
+let obj = {}
+obj[Symbol.iterator] = function*() {
+	yield 10;
+	yield 20;
+	yield 30;
+}
+
+let iterableObj = obj[Symbol.iterator]()
+console.log(iterableObj.next())
+console.log(iterableObj.next())
+console.log(iterableObj.next())
+
+```
 
 ---
 
