@@ -1,7 +1,7 @@
 <!-- page_number: true -->
 
 
-![bg](../asset/kero.png)
+![bg](../../asset/kero.png)
 
 JS JS TIME
 ===
@@ -88,6 +88,16 @@ const isSome = arr.some(v => v>3) // true
 const isEvery = arr.every(v => v>3) // false
 ```
 이는 자바스크립트 유저로 하여금, 특별한 케이스가 아니라면 최대한 추상화된 반복문을 사용하는 것을 권고하고 있습니다.
+
+---
+# 3-1. ForEach의 친구들
+```js
+Array.prototype.map
+Array.prototype.filter
+Array.prototype.every
+Array.prototype.some
+```
+알아두면 좋아요. 실무에서 매우 자주 쓰이는 친구들입니다.
 
 ---
 # 4.for - of
@@ -243,7 +253,7 @@ console.log(iterableObj.next())
 
 ---
 
-![bg](../asset/keroppi.gif)
+![bg](../../asset/keroppi.gif)
 # THX :D
 
 

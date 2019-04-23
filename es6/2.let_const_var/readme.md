@@ -1,7 +1,7 @@
 <!-- page_number: true -->
 
 
-![bg](../asset/bmo.png)
+![bg](../../asset/bmo.png)
 
 JS JS TIME
 ===
@@ -220,7 +220,7 @@ const finalValue1; // Uncaught SyntaxError
 ```
 
 ---
-![bg](../asset/bmo.png)
+![bg](../../asset/bmo.png)
 # THX :D
 
 

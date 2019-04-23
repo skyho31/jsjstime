@@ -1,7 +1,7 @@
 <!-- page_number: true -->
 
 
-![bg](../asset/ogu.gif)
+![bg](../../asset/ogu.gif)
 
 JS JS TIME
 ===
@@ -317,7 +317,7 @@ func(1,2,3,4); // [1,2,3,4]
 
 ---
 
-![bg](../asset/ogu_end.gif)
+![bg](../../asset/ogu_end.gif)
 # THX :D
 
 

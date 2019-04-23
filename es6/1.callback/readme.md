@@ -1,7 +1,7 @@
 <!-- page_number: true -->
 
 
-![bg](../asset/bmo.png)
+![bg](../../asset/bmo.png)
 
 JS JS TIME
 ===
@@ -148,5 +148,5 @@ const getter = keyArr =>
 ```
 
 ---
-![bg](../asset/bmo.png)
+![bg](../../asset/bmo.png)
 # THX :D

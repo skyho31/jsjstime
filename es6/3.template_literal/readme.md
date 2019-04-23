@@ -1,7 +1,7 @@
 <!-- page_number: true -->
 
 
-![bg](../asset/bmo.png)
+![bg](../../asset/bmo.png)
 
 JS JS TIME
 ===
@@ -140,7 +140,7 @@ String.raw({raw: ["Hello ", " ", "!"]}, firstName, lastName);
 ```
 
 ---
-![bg](../asset/bmo.png)
+![bg](../../asset/bmo.png)
 # THX :D
 
 
