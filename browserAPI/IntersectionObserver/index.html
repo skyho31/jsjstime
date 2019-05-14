@@ -1,0 +1,146 @@
+<html>
+  <head>
+    <style>
+      html, body {
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .dimmed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 100px;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      #app {
+        width: 300px;
+        height: 100vh;
+        background: black;
+        overflow-y: auto;
+      }
+
+      .box {
+        height: 200px;
+        background: white;
+        border: 1px solid black;
+      }
+
+      .selected {
+        background: rgb(121, 245, 142);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div class="dimmed hide">LOADING</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+    <script>
+      const $ = (elQuery, scope = document) => scope.querySelector(elQuery)
+      const $app = $('#app')
+      const $dimmed = $('.dimmed')
+      const BOX_LENGTH = 50
+      let page = 1
+      let pageSize = 20
+
+
+      // template node
+      const $fragment = document.createDocumentFragment()
+      const $template = document.createElement('template')
+      $template.innerHTML = `
+        <div class="box"></div>
+      `
+
+      const createBox = dataset => {
+        dataset.forEach(data => {
+          const $clone = document.importNode($template.content, true)
+          const $box = $('.box', $clone)
+          $box.textContent = data
+          $box.style.height = `${Math.floor(Math.random() * 50) + 50}px`
+          $fragment.appendChild($clone)
+        })
+
+        $app.appendChild($fragment)
+
+        const boxes = document.querySelectorAll('.box')
+        boxes.forEach(box => {
+          observer.observe(box)
+        })
+        page++
+      }
+
+      // createBox(BOX_LENGTH)
+
+      // intersection observer
+      const option = {
+        root: $('#app'),
+        rootMargin: '0px',
+        threshold: 1.0
+      }
+
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            console.log(entry.target.textContent)
+            entry.target.classList.add('selected')
+          } else {
+            entry.target.classList.remove('selected')
+          }
+        })
+      }, option);
+
+
+      // const boxes = document.querySelectorAll('.box')
+      // boxes.forEach(box => {
+      //   observer.observe(box)
+      // })
+
+      const init = async () => {
+        const { data: { data: dataset } } = await axios.get('http://localhost:8000/data', {
+          params: {
+            page,
+            pageSize
+          }
+        })
+        createBox(dataset)
+      }
+
+      init()
+
+
+      let isLoading = false
+      $app.onscroll = async () => {
+        const viewHeight = window.screen.height
+        const currScrollPosition = $app.scrollTop
+        const scrollHeight = $app.scrollHeight
+
+        if (currScrollPosition >= scrollHeight - viewHeight && !isLoading) {
+          isLoading = true
+          $dimmed.classList.remove('hide')
+          const { data: { data: dataset } } = await axios.get('http://localhost:8000/data', {
+            params: {
+              page,
+              pageSize
+            }
+          })
+
+          createBox(dataset)
+          $dimmed.classList.add('hide')
+          isLoading = false
+        }
+      }
+    </script>
+  </body>
+</html>
