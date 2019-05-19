@@ -62,7 +62,7 @@ class Map {
     })
   }
   drawCurrentPosition (position) {
-    const {x, y} = this._getTargetPosition(position)
+    const [x, y] = this._getTargetPosition(position)
     $mergeStyle(this.$me, {
       top: y,
       left: x,
@@ -107,7 +107,7 @@ class Map {
   }
   _getTargetPosition (position) {
     const $target = $(`.box[data-idx="${position}"]`)
-    const [ targetPositionInfo ] = $target.getClientRects()
+    const [ targetPositionInfo ] = Array.from($target.getClientRects())
     return [
       targetPositionInfo.x, 
       targetPositionInfo.y
