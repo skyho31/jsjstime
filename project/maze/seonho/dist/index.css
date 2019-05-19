@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+}
+
+#app {
+  overflow: auto;
+  border: 5px solid red;
+  display: inline-block;
+}
+
+.row {
+  overflow: hidden;
+  width: calc(16 * 100px);
+}
+
+.box {
+  /* border: 1px solid black; */
+  width: 16px;
+  height: 16px;
+  float: left;
+}
+
+.box.disabled {
+  background: black !important;
+}
+
+.box.path {
+  background: yellow;
+}
+
+.clear {
+  clear: both;
+}
+
+#me {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  background: #ff6666;
+  top: 5;
+  left: 5;
+}
