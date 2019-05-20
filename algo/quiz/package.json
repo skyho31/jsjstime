@@ -1,0 +1,19 @@
+{
+  "name": "js_algo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js",
+    "test": "mocha ./test/ch$Q/*.spec.js -s 0",
+    "test-all": "mocha ./test/**/*.spec.js -s 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-asserttype": "^1.0.5",
+    "mocha": "^6.1.3"
+  }
+}
