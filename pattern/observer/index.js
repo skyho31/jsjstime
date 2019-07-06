@@ -33,7 +33,6 @@ function domFactory (id, text, tag = 'div') {
 class Screen {
     constructor (id, text) {
         this.el_ = domFactory(id, text)
-        this.init();
         this.changeText = this.changeText.bind(this)
         this.appController = Application.appController
         
