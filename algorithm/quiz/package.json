@@ -14,6 +14,6 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-asserttype": "^1.0.5",
-    "mocha": "^6.1.3"
+    "mocha": "^10.2.0"
   }
 }
